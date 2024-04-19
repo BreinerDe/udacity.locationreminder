@@ -5,6 +5,7 @@ import androidx.databinding.BindingAdapter
 import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.udacity.project4.base.BaseRecyclerViewAdapter
+import com.udacity.project4.utils.fadeIn
 
 object BindingAdapters {
 

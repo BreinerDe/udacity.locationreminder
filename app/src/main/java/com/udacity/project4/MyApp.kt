@@ -1,6 +1,6 @@
 package com.udacity.project4
 
-import android.app.Application
+import com.udacity.project4.base.ToastModule
 import com.udacity.project4.locationreminders.data.ReminderDataSource
 import com.udacity.project4.locationreminders.data.local.LocalDB
 import com.udacity.project4.locationreminders.data.local.RemindersLocalRepository
@@ -11,7 +11,7 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.context.startKoin
 import org.koin.dsl.module
 
-class MyApp : Application() {
+class MyApp : BaseAppliction() {
 
 	override fun onCreate() {
 		super.onCreate()
@@ -37,6 +37,7 @@ class MyApp : Application() {
 			}
 			single { RemindersLocalRepository(get()) as ReminderDataSource }
 			single { LocalDB.createRemindersDao(this@MyApp) }
+			single { ToastModule.providesToaster(this@MyApp) }
 		}
 
 		startKoin {
